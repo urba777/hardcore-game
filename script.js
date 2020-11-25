@@ -21,9 +21,13 @@ function countDown() {
     timer.innerHTML = `${countdown}`;
     countdown--;
 
-    if(countdown >= 0) {
+    console.log(countdown);
+
+    if(countdown > 0) {
         setTimeout(countDown, 1000);
-    } else {
+    }
+    
+    if (countdown === 0) {
         gameOver();
     }
 }
@@ -70,19 +74,18 @@ startGame.addEventListener("click", () => {
     gameSoundOver.currentTime = 0;
     gameOverText.style.display = "none";
     winnerText.style.display = "none";
-
-
-})
+});
 
 function onButtonClick(button) {
     const currentNumber = Number(button.innerHTML);
     for (let number of numbers.children) {
         if (currentNumber < Number(number.innerHTML)) {
             gameOver();
+            return;
         }
     }
     
-    // correct.play();
+    correct.play();
     button.remove();
 
     if (!numbers.children.length) {
@@ -93,8 +96,7 @@ function onButtonClick(button) {
         winnerText.style.display = "block";
         melodyMusic.pause();
         melodyMusic.currentTime = 0;
-        gameOver().stop();
-        countdown = 0;
+        countdown = -1;
     }
 }
 
