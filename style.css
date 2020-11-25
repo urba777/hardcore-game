@@ -1,0 +1,309 @@
+body {
+    background-image: url(images/bg1.jpg);
+    background-position: center;
+    animation-name: bgMoving;
+    background-repeat: no-repeat;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently */
+}
+
+#gameOverWinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#winnerText, #gameOverText {
+    font-size: 48px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.numbers {
+    margin: auto;
+    display: flex;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.numbers button:hover {
+    background-image: url(images/bg2.jpg);
+    background-size: 80px;
+}
+
+.numbers button {
+    border: none;
+    border-radius: 3px;
+    width: 100px;
+    height: 100px;
+    font: inherit;
+    font-size: 34px;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    animation-name: buttonMoving;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 3px 0px 2px rgba(0,0,0,0.1), 0px 6px 0px 4px rgba(0,0,0,0.1), 0px 9px 0px 6px rgba(0,0,0,0.1), 0px 12px 0px 8px rgba(0,0,0,0.1), 0px 15px 0px 10px rgba(0,0,0,0.1), 0px 18px 0px 12px rgba(0,0,0,0.1), 0px 21px 0px 14px rgba(0,0,0,0.1), 0px 24px 0px 16px rgba(0,0,0,0.1), 0px 27px 0px 18px rgba(0,0,0,0.1), 0px 30px 0px 20px rgba(0,0,0,0.1), -50px -50px 26px -8px rgba(0,0,0,0); 
+    box-shadow: 0px 3px 0px 2px rgba(0,0,0,0.1), 0px 6px 0px 4px rgba(0,0,0,0.1), 0px 9px 0px 6px rgba(0,0,0,0.1), 0px 12px 0px 8px rgba(0,0,0,0.1), 0px 15px 0px 10px rgba(0,0,0,0.1), 0px 18px 0px 12px rgba(0,0,0,0.1), 0px 21px 0px 14px rgba(0,0,0,0.1), 0px 24px 0px 16px rgba(0,0,0,0.1), 0px 27px 0px 18px rgba(0,0,0,0.1), 0px 30px 0px 20px rgba(0,0,0,0.1), -50px -50px 26px -8px rgba(0,0,0,0);
+}
+
+.numbers button:active {
+    transform: scale(2.5);
+}
+
+.message {
+    font-size: 34px;
+    text-align: center;
+    margin: 100px auto;
+}
+
+.hardcore {
+    animation-name: hardcoreMoving;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    font-weight: 400;
+    padding-top: 70px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-size: 48px;
+}
+
+body > div.numbers > button:nth-child(2),
+body > div.numbers > button:nth-child(4),
+body > div.numbers > button:nth-child(6),
+body > div.numbers > button:nth-child(8),
+body > div.numbers > button:nth-child(10) {
+    animation-name: travelingButtonsOne;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+}
+
+body > div.numbers > button:nth-child(1),
+body > div.numbers > button:nth-child(3),
+body > div.numbers > button:nth-child(5),
+body > div.numbers > button:nth-child(7),
+body > div.numbers > button:nth-child(9) {
+    animation-name: travelingButtonsTwo;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+}
+
+.startDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 200px;
+}
+
+.startGame {
+    font-size: 36px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    animation-name: startGameMoving;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+}
+
+.timeLeft {
+    font-size: 36px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#timer {
+    padding-top: 20px;
+    font-size: 70px;
+    font-weight: 700;
+
+}
+
+.startGame:active {
+    transform: scale(0.7);
+}
+
+
+@keyframes bgMoving {
+    0% {
+        background-image: url(images/bg1.jpg);
+    }
+    25% {
+        background-image: url(images/bg2.jpg);
+    }
+    50% {
+        background-image: url(images/bg1.jpg);
+    }
+    75% {
+        background-image: url(images/bg2.jpg);
+    }
+    100% {
+        background-image: url(images/bg1.jpg);
+    }
+}
+
+/* @keyframes buttonMoving {
+    0% {
+        background-image: url(images/bg1.jpg);
+        background-size: 1000px;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        border-radius: 10%;
+    }
+    25% {
+        background-image: url(images/bg2.jpg);
+        border-radius: 50%;
+    }
+    35% {
+        filter: blur(2px);
+        -webkit-filter: blur(2px);
+    }
+    50% {
+        background-image: url(images/bg1.jpg);
+        transform: scale(0.5) rotate3d(0, -20, 0, 1turn);
+        border-radius: 10%;
+    }
+    75% {
+        background-image: url(images/bg2.jpg);
+        border-radius: 50%;
+    }
+    100% {
+        background-image: url(images/bg1.jpg);
+        transform: scale(1) rotate3d(0, -20, 0, 1turn);
+        border-radius: 10%;
+    }
+} */
+
+@keyframes hardcoreMoving {
+    0% {
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+    25% {
+    }
+    50% {
+        transform: scale(2);
+        }
+    75% {
+    }
+    100% {
+        transform: scale(1) rotate3d(0, 0, 0, 1turn);
+    }
+}
+
+@keyframes startGameMoving {
+    0% {
+    }
+    25% {
+    }
+    50% {
+        transform: scale(1.2);
+        }
+    75% {
+    }
+    100% {
+        transform: scale(1) rotate3d(0, 0, 0, 1turn);
+    }
+}
+
+@keyframes travelingButtonsOne {
+    0% {
+        background-image: url(images/bg1.jpg);
+        background-size: 2000px;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        border-radius: 10%;
+        top: 0px;
+    }
+    25% {
+        top: 50px;
+        background-image: url(images/bg2.jpg);
+        border-radius: 50%;
+    }
+    35% {
+        filter: blur(2px);
+        -webkit-filter: blur(2px);
+    }
+    50% {
+        background-image: url(images/bg1.jpg);
+        transform: scale(0.5) rotate3d(0, -20, 0, 1turn);
+        border-radius: 10%;
+        top: 0px;
+        }
+    75% {
+        top: 50px;
+        background-image: url(images/bg2.jpg);
+        border-radius: 50%;
+    }
+    100% {
+        top: 0px;
+        background-image: url(images/bg1.jpg);
+        transform: scale(1) rotate3d(0, -20, 0, 1turn);
+        border-radius: 10%;
+    }
+}
+
+@keyframes travelingButtonsTwo {
+    0% {
+        background-image: url(images/bg1.jpg);
+        background-size: 2000px;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        border-radius: 10%;
+        top: 50px;
+    }
+    25% {
+        top: 0px;
+        background-image: url(images/bg2.jpg);
+        border-radius: 50%;
+    }
+    35% {
+        filter: blur(2px);
+        -webkit-filter: blur(2px);
+    }
+    50% {
+        background-image: url(images/bg1.jpg);
+        transform: scale(0.5) rotate3d(0, -20, 0, 1turn);
+        border-radius: 10%;
+        top: 50px;
+        }
+    75% {
+        top: 0px;
+        background-image: url(images/bg2.jpg);
+        border-radius: 50%;
+    }
+    100% {
+        top: 50px;
+        background-image: url(images/bg1.jpg);
+        transform: scale(1) rotate3d(0, -20, 0, 1turn);
+        border-radius: 10%;
+    }
+}
+
+
+    
